@@ -1,8 +1,12 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { useNostrEvents } from "./NostrEventsProvider";
 
 function App() {
+  const nostrEvents = useNostrEvents();
+  console.log("nostrEvents", nostrEvents);
+
   return (
     <div className="App">
       <header className="App-header">
