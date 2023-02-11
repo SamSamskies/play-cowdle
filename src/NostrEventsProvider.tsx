@@ -36,13 +36,13 @@ export const NostrEventsProvider = ({ children }: { children: ReactNode }) => {
 
     sub.on("event", (event: Event) => {
       if (hasReachedEndOfStoredEvents) {
-        setEvents((events) => [event, ...events]);
+        setEvents((events) => [...events, event]);
       } else {
         initialEvents.push(event);
       }
     });
     sub.on("eose", () => {
-      setEvents(initialEvents.reverse());
+      setEvents(initialEvents);
       hasReachedEndOfStoredEvents = true;
     });
 
